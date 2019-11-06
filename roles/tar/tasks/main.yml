@@ -1,0 +1,5 @@
+---
+- name: install
+  homebrew:
+    name: gnu-tar
+    state: present

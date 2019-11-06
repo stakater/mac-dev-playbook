@@ -1,0 +1,5 @@
+java_home: /Library/Java/JavaVirtualMachines
+java_11_dir: "{{java_home}}/jdk-11.0.2.jdk"
+java_11_home: "{{java_home}}/11"
+java_11_tmp: "{{tmp_dir}}/java11.tar.gz"
+package_url: https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz

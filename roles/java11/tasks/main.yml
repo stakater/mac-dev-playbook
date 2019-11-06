@@ -1,0 +1,30 @@
+---
+- name: register-if-installed
+  register: java_11_installed
+  stat:
+    path: "{{java_11_home}}"
+
+- name: download
+  get_url:
+    url: "{{package_url}}"
+    dest: "{{java_11_tmp}}"
+  when: not java_11_installed.stat.exists
+
+- name: unpack
+  become: true
+  unarchive:
+    src: "{{java_11_tmp}}"
+    dest: "{{java_home}}"
+  when: not java_11_installed.stat.exists
+
+- name: rename
+  become: true
+  command: mv '{{java_11_dir}}' '{{java_11_home}}'
+  when: not java_11_installed.stat.exists
+
+- name: path
+  blockinfile:
+    path: "{{zsh_profile}}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK JAVA"
+    block: |
+      export JAVA_HOME={{java_11_home}}/Contents/Home

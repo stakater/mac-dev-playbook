@@ -1,0 +1,4 @@
+applications_dir: /Applications
+apps_dir: '{{ansible_env.HOME}}/.apps'
+zsh_profile: '{{ansible_env.HOME}}/.zshenv'
+tmp_dir: /tmp

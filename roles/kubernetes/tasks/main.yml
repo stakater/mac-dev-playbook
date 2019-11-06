@@ -1,0 +1,5 @@
+---
+- name: kubernetes-cli
+  homebrew:
+    name: kubernetes-cli
+    state: present

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ansible-playbook -K -i inventory playbook.yml
+rm -f playbook.retry

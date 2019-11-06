@@ -1,0 +1,12 @@
+---
+- hosts: local
+  roles:
+    - zsh
+    - tar
+    - java11
+    - maven
+    - docker
+    - postman
+    - kubernetes
+    - sourcetree
+    - frontend

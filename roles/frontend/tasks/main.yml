@@ -1,0 +1,23 @@
+---
+- name: install-node
+  homebrew:
+    name: node
+    state: present
+
+- name: npm-check-updates
+  npm:
+    name: npm-check-updates
+    global: yes
+    state: present
+
+- name: http-server
+  npm:
+    name: http-server
+    global: yes
+    state: present
+
+- name: release-it
+  npm:
+    name: release-it
+    global: yes
+    state: present

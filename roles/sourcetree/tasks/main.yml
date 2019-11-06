@@ -1,0 +1,17 @@
+---
+- name: register-if-installed
+  register: sourcetree_installed
+  stat:
+    path: "{{sourcetree_app}}"
+
+- name: download
+  get_url:
+    url: "{{download_url}}"
+    dest: "{{temp_file}}"
+  when: not sourcetree_installed.stat.exists
+
+- name: unpack
+  unarchive:
+    src: "{{temp_file}}"
+    dest: "{{applications_dir}}"
+  when: not sourcetree_installed.stat.exists

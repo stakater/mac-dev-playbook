@@ -1,0 +1,6 @@
+---
+# https://stackoverflow.com/a/30525406
+- name: create-zshenv
+  command: touch "{{zsh_profile}}"
+  args:
+    creates: "{{zsh_profile}}"

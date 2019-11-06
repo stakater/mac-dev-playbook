@@ -1,0 +1,17 @@
+---
+- name: register-if-installed
+  register: postman_installed
+  stat:
+    path: "{{postman_app}}"
+
+- name: download
+  get_url:
+    url: "{{download_url}}"
+    dest: "{{temp_file}}"
+  when: not postman_installed.stat.exists
+
+- name: unpack
+  unarchive:
+    src: "{{temp_file}}"
+    dest: "{{applications_dir}}"
+  when: not postman_installed.stat.exists
